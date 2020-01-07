@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "party._2a03.mc.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"server": [
+		"MixinGameModeCommand",
+		"MixinTntEntity"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

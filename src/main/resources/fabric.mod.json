@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "minecraft-tweaks-2a03",
+	"version": "1.0.0",
+	"name": "2a03.party Tweaks",
+	"description": "Simple modifications for the 2a03.party Minecraft server.",
+	"authors": [
+		"flewkey"
+	],
+	"contact": {
+		"homepage": "https://flewkey.com/",
+		"sources": "https://github.com/flewkey/minecraft-tweaks-2a03"
+	},
+	"license": "MIT",
+	"icon": "assets/2a03-minecraft-tweaks/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"party._2a03.mc.MinecraftTweaks2a03"
+		]
+	},
+	"mixins": [
+		"minecraft-tweaks-2a03.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.7.2",
+		"fabric": "*",
+		"minecraft": "1.15.x"
+	}
+}

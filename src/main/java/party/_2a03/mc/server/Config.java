@@ -5,24 +5,30 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.nio.file.Path;
 import java.util.Map;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import party._2a03.mc.MinecraftTweaks2a03;
 import party._2a03.mc.server.PlayerData;
 import party._2a03.mc.server.PlayerPosition;
 
 public class Config {
 	private static final Logger LOGGER = LogManager.getLogger();
 	private static JSONObject json;
-
+	private static File config;
+	
+	public static void initConfig(File configDir) {
+		config = new File(configDir, "2a03.json");
+	}
+	
 	public static void loadConfig() throws Exception {
 		LOGGER.info("Loading 2a03.party configuration");
-		File f = new File("2a03.json");
-		if (f.exists()) {
-			InputStream is = new FileInputStream("2a03.json");
+		if (config.exists()) {
+			InputStream is = new FileInputStream(config);
 			String jsonRaw = IOUtils.toString(is, "UTF-8");
 			json = new JSONObject(jsonRaw);
 		} else {
@@ -77,7 +83,7 @@ public class Config {
 	}
 
 	private static void saveConfig() {
-		try (FileWriter file = new FileWriter("2a03.json")) {
+		try (FileWriter file = new FileWriter(config)) {
 			file.write(JSONObject.valueToString(json));
 		} catch (Exception e) {
 			LOGGER.error("Failed to save config file");

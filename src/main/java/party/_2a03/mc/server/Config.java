@@ -80,7 +80,7 @@ public class Config {
 		try (FileWriter file = new FileWriter("2a03.json")) {
 			file.write(JSONObject.valueToString(json));
 		} catch (Exception e) {
-			System.out.println("Failed to save config file");
+			LOGGER.error("Failed to save config file");
 		}
 	}
 }

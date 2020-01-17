@@ -6,11 +6,17 @@ import net.minecraft.entity.TntEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(TntEntity.class)
 public abstract class MixinTntEntity extends Entity {
+	@Shadow
+	private int fuseTimer;
+
 	public MixinTntEntity(EntityType<? extends TntEntity> entityType, World world) {
 		super(entityType, world);
+		this.fuseTimer = 80;
+		this.inanimate = true;
 	}
 
 	/**

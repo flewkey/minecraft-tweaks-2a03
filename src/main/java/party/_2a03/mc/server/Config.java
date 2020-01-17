@@ -33,7 +33,7 @@ public class Config {
 			json = new JSONObject(jsonRaw);
 		} else {
 			LOGGER.info("Config not found, creating one");
-			json = new JSONObject("{\"spawn\":[0,0,0,0,0,-2],\"members\":[]}");
+			json = new JSONObject("{\"disableTntExplosions\":false,\"spawn\":[0,0,0,0,0,-2],\"members\":[]}");
 			saveConfig();
 		}
 		LOGGER.info("Configuration loaded");

@@ -4,9 +4,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import party._2a03.mc.server.Config;
 
 @Mixin(TntEntity.class)
 public abstract class MixinTntEntity extends Entity {
@@ -19,11 +22,9 @@ public abstract class MixinTntEntity extends Entity {
 		this.inanimate = true;
 	}
 
-	/**
-	* @reason Disable TNT entity explosions.
-	* @author flewkey
-	*/
-	@Overwrite
-	private void explode() {
+	@Inject(method = "explode", at = @At("HEAD"), cancellable = true)
+	private void OnTntExplode(CallbackInfo ci) {
+		if (Config.getBool("disableTntExplosions") == true)
+			ci.cancel();
 	}
 }

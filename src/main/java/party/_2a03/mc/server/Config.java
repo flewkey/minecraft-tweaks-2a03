@@ -77,6 +77,10 @@ public class Config {
 		return json.getJSONArray(key);
 	}
 
+	public static boolean getBool(String key) {
+		return json.getBoolean(key);
+	}
+
 	public static void setData(String key, JSONArray data) {
 		json.put(key, data);
 		saveConfig();

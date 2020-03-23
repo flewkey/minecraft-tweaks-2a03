@@ -1,4 +1,4 @@
-2a03-minecraft-tweaks
+minecraft-tweaks-2a03
 
 This repository contains simple modifications for the 2a03.party Minecraft
 server. I have replaced the patches with a Fabric mod.

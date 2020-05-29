@@ -19,7 +19,7 @@ public abstract class MixinServerPlayerEntity extends PlayerEntity {
 	private void OnServerPlayerSpawn(CallbackInfo ci) {
 		PlayerPosition position = new PlayerPosition(Config.getData("spawn"));
 		if (position.dimensiontype == this.dimension) {
-			this.setPositionAndAngles(position.x, position.y, position.z, position.yaw, position.pitch);
+			this.updatePositionAndAngles(position.x, position.y, position.z, position.yaw, position.pitch);
 			ci.cancel();
 		}
 	}

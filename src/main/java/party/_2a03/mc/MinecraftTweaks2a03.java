@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import party._2a03.mc.command.ConfigCommand;
+import party._2a03.mc.command.FlyCommand;
 import party._2a03.mc.command.HatCommand;
 import party._2a03.mc.command.HeadCommand;
 import party._2a03.mc.command.HomeCommand;
@@ -43,6 +44,7 @@ public class MinecraftTweaks2a03 implements ModInitializer {
 		LOGGER.info("Registering 2a03.party commands");
 		CommandRegistry.INSTANCE.register(false, dispatcher -> {
 			ConfigCommand.register(dispatcher);
+			FlyCommand.register(dispatcher);
 			HatCommand.register(dispatcher);
 			HeadCommand.register(dispatcher);
 			HomeCommand.register(dispatcher);

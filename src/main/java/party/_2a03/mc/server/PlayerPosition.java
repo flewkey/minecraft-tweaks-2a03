@@ -21,8 +21,8 @@ public class PlayerPosition {
 			this.x = data.getDouble(0);
 			this.y = data.getDouble(1);
 			this.z = data.getDouble(2);
-			this.yaw = data.getFloat(3);
-			this.pitch = data.getFloat(4);
+			this.yaw = data.getNumber(3).floatValue();
+			this.pitch = data.getNumber(4).floatValue();
 			this.dimensiontype = DimensionType.byRawId(dimension_id);
 		}
 	}
